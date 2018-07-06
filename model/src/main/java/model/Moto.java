@@ -6,6 +6,7 @@ public class Moto extends Element {
 	private int y; 
 	private int upx;
 	private int upy;
+	private int NbWall = 1;
 	
 	public Moto(int x, int y) {
 		super(x, y);
@@ -22,7 +23,8 @@ public class Moto extends Element {
     }
     public void MakeWall()
     {
-    	
+    	NbWall ++; 
+    	new Wall(x, y);
     }
     // get and set 
     
