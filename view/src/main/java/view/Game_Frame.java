@@ -3,8 +3,9 @@ package view;
 import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import java.awt.event.*;
 
-public class Game_Frame extends JFrame{
+public class Game_Frame extends JFrame implements KeyListener{
 	
 	/**
 	 * 
@@ -26,6 +27,7 @@ public class Game_Frame extends JFrame{
 	    position_joueur_base();
 	    this.setContentPane(Grille);
 	    this.setVisible(true);
+		this.addKeyListener(this);
 	    
 	}
 	public void position_joueur_base(){
@@ -40,6 +42,22 @@ public class Game_Frame extends JFrame{
 	    Time Time = new Time();
 	    Time.setLocation(11+(19*5),2+(325));
 	    Grille.add(Time);
+	}
+	
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

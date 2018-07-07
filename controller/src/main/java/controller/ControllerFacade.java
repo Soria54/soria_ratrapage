@@ -69,16 +69,16 @@ public class ControllerFacade implements IController {
 		{
 			switch (order){
 			case DOWN:
-				Moto.setdirection();
+				Moto1.setdirection();
 				break;
 			case UP:
-				hm.move(Direction.UP);
+				Moto1.move(UP);
 				break;
 			case LEFT:
-				hm.move(Direction.LEFT);
+				Moto1.move(LEFT);
 				break;
 			case RIGHT:
-				hm.move(Direction.RIGHT);
+				Moto1.move(RIGHT);
 				break;
 		}
 		}
@@ -86,16 +86,16 @@ public class ControllerFacade implements IController {
 		{
 			switch (order){
 			case DOWN:
-				hm.move(Direction.DOWN);
+				Moto2.move(Direction.DOWN);
 				break;
 			case UP:
-				hm.move(Direction.UP);
+				Moto2.move(Direction.UP);
 				break;
 			case LEFT:
-				hm.move(Direction.LEFT);
+				Moto2.move(Direction.LEFT);
 				break;
 			case RIGHT:
-				hm.move(Direction.RIGHT);
+				Moto2.move(Direction.RIGHT);
 				break;			
 		}
 		}
