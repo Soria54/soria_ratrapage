@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.JFrame;
@@ -15,6 +16,7 @@ public class Game_Frame extends JFrame{
 	private JLabel time = new JLabel();
 	private Grille Grille = new Grille();
 	
+	
 	Game_Frame(){
 	    this.setTitle("TRON");
 	    this.setSize(600, 400);
@@ -22,9 +24,23 @@ public class Game_Frame extends JFrame{
 	    this.setResizable(false);
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
 	    this.setBackground(Color.CYAN); 
+	    this.setLayout(null);
+	    position_joueur_base();
 	    this.setContentPane(Grille);
+
 	    this.setVisible(true);
+	    
 	}
+	public void position_joueur_base(){
+	    Cube Cube1 = new Cube(Color.BLUE);
+	    Cube1.setLocation(11+(19*5),2+(18*9));
+	    Grille.add(Cube1);
+	    
+	    Cube Cube2 = new Cube(Color.RED);
+	    Cube2.setLocation(11+(19*24),2+(18*9));
+	    Grille.add(Cube2);
+	}
+
 
 
 }

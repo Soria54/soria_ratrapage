@@ -14,8 +14,9 @@ public class Grille extends JPanel {
 	private static final long serialVersionUID = 1167541544005820737L;
 
 public Grille() {
-	
+	this.setLayout(null);
 	this.setBackground(Color.CYAN);
+	
 }
 
 public void paintComponent(Graphics g){
@@ -36,6 +37,8 @@ public void paintComponent(Graphics g){
 		}
 		
 }
+
+
 
 
 
