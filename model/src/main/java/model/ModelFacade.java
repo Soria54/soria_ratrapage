@@ -14,7 +14,7 @@ import model.dao.ExampleDAO;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public final class ModelFacade implements IModel {
+public final class ModelFacade implements IModel, Imodel_view {
 	private int NbWall = 1;
 	private Moto Moto1;
 	private Moto Moto2;
@@ -24,12 +24,13 @@ public final class ModelFacade implements IModel {
      */
     public ModelFacade() {
         super();
-    }
-    
-    public void MakePlayer() {
 		this.Moto1 = new Moto(5, 9);
 		this.Moto2 = new Moto(24, 9);
     }
+    
+
+    
+    
     
     public int getMoto1x() 
     {
@@ -49,19 +50,31 @@ public final class ModelFacade implements IModel {
     	return this.Moto2.getY(); 
     }
     
+    
+    public void setMoto1x(int x) 
+    {
+    	this.Moto1.setX(x); 
+    }
+    public void setMoto1y(int y) 
+    {
+    	this.Moto1.setY(y);
+    }
+    public void setMoto2x(int x) 
+    {
+    	this.Moto2.setX(x); 
+    }
+    public void setMoto2y(int y) 
+    {
+    	this.Moto2.setY(y); 
+    }
+    
+    
     public void MakeWall(int x, int y)
     {
     	wall[NbWall] = new Wall(x,y);
     	NbWall ++; 
     }
 
-	/**
-	 * Inform the view that the model have changed
-	 */
-	public void flush() {
-		this.setChanged();
-		this.notifyObservers();
-	}
 	
     @Override
     public Example getExampleById(final int id) throws SQLException {
@@ -79,5 +92,10 @@ public final class ModelFacade implements IModel {
     public List<Example> getAllExamples() throws SQLException {
         return ExampleDAO.getAllExamples();
     }
+
+
+
+
+
 
 }

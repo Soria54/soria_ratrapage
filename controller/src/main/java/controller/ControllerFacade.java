@@ -12,8 +12,6 @@ import view.Order;
 
 public class ControllerFacade implements IController {
 
-    /** The view. */
-    private final IView  view;
 
     /** The model. */
     private final IModel model;
@@ -21,9 +19,8 @@ public class ControllerFacade implements IController {
 	/** The clock of the game */
 	private Clock clock;
 
-    public ControllerFacade(final IView view, final IModel model) {
+    public ControllerFacade( final IModel model) {
         super();
-        this.view = view;
         this.model = model;
     }
 
@@ -37,31 +34,13 @@ public class ControllerFacade implements IController {
     	
 		this.clock = new Clock(this);
 		this.clock.start();
-		this.model.MakePlayer();
     	//  this.getView().displayMessage("message");
     	//	this.getView().displayMessage(this.getModel().getExampleById(1).toString());
     	//  this.getView().displayMessage(this.getModel().getExampleByName("Example 2").toString());
-    	
 
     }
 
-    /**
-     * Gets the view.
-     *
-     * @return the view
-     */
-    public IView getView() {
-        return this.view;
-    }
 
-    /**
-     * Gets the model.
-     *
-     * @return the model
-     */
-    public IModel getModel() {
-        return this.model;
-    }
 
 	@Override
 	public void orderPerform(Order order, int i, int x ,int y) {
@@ -69,16 +48,16 @@ public class ControllerFacade implements IController {
 		{
 			switch (order){
 			case DOWN:
-				Moto1.setdirection();
+				this.getModel().setMoto1y(y-1);
 				break;
 			case UP:
-				Moto1.move(UP);
+				this.getModel().setMoto1y(y+1);
 				break;
 			case LEFT:
-				Moto1.move(LEFT);
+				this.getModel().setMoto1x(x-1);
 				break;
 			case RIGHT:
-				Moto1.move(RIGHT);
+				this.getModel().setMoto1x(x+1);
 				break;
 		}
 		}
@@ -86,21 +65,21 @@ public class ControllerFacade implements IController {
 		{
 			switch (order){
 			case DOWN:
-				Moto2.move(Direction.DOWN);
+				this.getModel().setMoto2y(y-1);
 				break;
 			case UP:
-				Moto2.move(Direction.UP);
+				this.getModel().setMoto2y(y+1);
 				break;
 			case LEFT:
-				Moto2.move(Direction.LEFT);
+				this.getModel().setMoto2x(x-1);
 				break;
 			case RIGHT:
-				Moto2.move(Direction.RIGHT);
-				break;			
+				this.getModel().setMoto2x(x+1);
+				break;	
 		}
 		}
 		
-		this.model.flush();
+		
 		
 	}
 	
@@ -123,4 +102,16 @@ public class ControllerFacade implements IController {
 		// TODO Auto-generated method stub
 		
 	}
+	
+
+
+    /**
+     * Gets the model.
+     *
+     * @return the model
+     */
+    public IModel getModel() {
+        return this.model;
+    }
+	
 }

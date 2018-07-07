@@ -9,7 +9,10 @@ import view.ViewFacade;
  abstract class Main {
 
     public static void main(final String[] args) {
-        final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
+    	ModelFacade Model = new ModelFacade();
+    	
+    	ControllerFacade ControllerFacade = new ControllerFacade(Model);
+    	ViewFacade View = new ViewFacade(ControllerFacade);
         
         /*
         try {

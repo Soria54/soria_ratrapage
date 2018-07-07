@@ -4,13 +4,17 @@ import java.sql.SQLException;
 import java.util.List;
 
 
-public interface IModel<Moto> {
+public interface IModel {
 
-	public void MakePlayer();
     public int getMoto1x(); 
     public int getMoto1y(); 
     public int getMoto2x(); 
     public int getMoto2y(); 
+    
+    public void setMoto1x(int x); 
+    public void setMoto1y(int y); 
+    public void setMoto2x(int x); 
+    public void setMoto2y(int y);
     /**
      * Gets the example by id.
      *

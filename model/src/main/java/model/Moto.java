@@ -40,7 +40,7 @@ public class Moto extends Element {
 
 
 	public void setX(int x) {
-		this.x = x;
+		this.x = 11+(19*x);
 	}
 
 
@@ -50,7 +50,7 @@ public class Moto extends Element {
 
 
 	public void setY(int y) {
-		this.y = y;
+		this.y = 11 + (18*y);
 	}
 
 }

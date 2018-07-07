@@ -6,8 +6,9 @@ import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 import controller.IController;
 import view.Order;
-
+import model.IModel;
 import java.awt.event.*;
+
 
 
 public class Game_Frame extends JFrame implements KeyListener{
@@ -20,6 +21,7 @@ public class Game_Frame extends JFrame implements KeyListener{
 	Cube joueur2 = new Cube(Color.RED);
 	
 	private IController controller;
+	private IModel model;
 	/**
 	 * 
 	 */
