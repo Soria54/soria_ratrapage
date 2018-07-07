@@ -29,10 +29,10 @@ public void paintComponent(Graphics g){
 		int uniteY = getHeight()/20;
 		for(int i=0; i<=30; i++){
 			//x1, y1, x2, y2
-		g.drawLine(uniteX*i+11, 0+2, uniteX*i+11, uniteY*20+2);
+		g.drawLine(uniteX*i+11, 0+2, uniteX*i+11, uniteY*18+2);
 		}
 		
-		for(int i=0; i<=20; i++){
+		for(int i=0; i<=18; i++){
 		g.drawLine(0+11, uniteY*i+2, uniteX*30+11, uniteY*i+2);
 		}
 		

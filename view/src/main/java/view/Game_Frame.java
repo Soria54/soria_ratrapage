@@ -2,9 +2,12 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class Game_Frame extends JFrame{
 	
@@ -26,19 +29,28 @@ public class Game_Frame extends JFrame{
 	    this.setBackground(Color.CYAN); 
 	    this.setLayout(null);
 	    position_joueur_base();
-	    this.setContentPane(Grille);
+	    
 
+	    
+	    this.setContentPane(Grille);
+	    
+
+	    
 	    this.setVisible(true);
 	    
 	}
 	public void position_joueur_base(){
 	    Cube Cube1 = new Cube(Color.BLUE);
-	    Cube1.setLocation(11+(19*5),2+(18*9));
+	    Cube1.setLocation(11+(19*5),2+(18*8));
 	    Grille.add(Cube1);
 	    
 	    Cube Cube2 = new Cube(Color.RED);
-	    Cube2.setLocation(11+(19*24),2+(18*9));
+	    Cube2.setLocation(11+(19*24),2+(18*8));
 	    Grille.add(Cube2);
+	    
+	    Time Time = new Time();
+	    Time.setLocation(11+(19*5),2+(325));
+	    Grille.add(Time);
 	}
 
 
