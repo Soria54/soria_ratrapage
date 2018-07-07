@@ -2,5 +2,5 @@ package view;
 
 public enum Order {
     LEFT,
-    RIGHT,
+    RIGHT, UP, DOWN,
 }

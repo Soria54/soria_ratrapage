@@ -22,7 +22,6 @@ public class ViewFacade extends JFrame implements IView, ActionListener  {
 
 	JButton bouton = new JButton("START");	
 	private Start Start = new Start();
-	private Grille Grille = new Grille();
 	private controller.IController controller;
 
 	
@@ -67,19 +66,10 @@ public class ViewFacade extends JFrame implements IView, ActionListener  {
     
     
     public void actionPerformed(ActionEvent arg0) {   
-        this.setBackground(Color.CYAN);
-        this.remove(bouton);
-        this.remove(Start);
-        
-        
-    	this.setContentPane(Grille);
-    	this.revalidate();
+    	closeFrame();
+    	new Game_Frame();
     	
-  
-       controller.start();
-
-
-
+    	//controller.start();
     	
       }
 

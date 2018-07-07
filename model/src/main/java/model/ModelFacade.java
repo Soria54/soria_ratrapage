@@ -1,9 +1,11 @@
 package model;
 
+import java.awt.geom.Ellipse2D;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
-import controller.Moto;
+
 import model.dao.ExampleDAO;
 
 /**
@@ -14,6 +16,8 @@ import model.dao.ExampleDAO;
  */
 public final class ModelFacade implements IModel {
 	private int NbWall = 1;
+	private Moto Moto1;
+	private Moto Moto2;
 	Wall wall[] = new Wall[598];
     /**
      * Instantiates a new model facade.
@@ -23,8 +27,26 @@ public final class ModelFacade implements IModel {
     }
     
     public void MakePlayer() {
-		Moto Moto1 = new Moto(5, 9);
-		Moto Moto2 = new Moto(24, 9);
+		this.Moto1 = new Moto(5, 9);
+		this.Moto2 = new Moto(24, 9);
+    }
+    
+    public int getMoto1x() 
+    {
+    	return this.Moto1.getX(); 
+    }
+    public int getMoto1y() 
+    {
+    	return this.Moto1.getY(); 
+    }
+    
+    public int getMoto2x() 
+    {
+    	return this.Moto2.getX(); 
+    }
+    public int getMoto2y() 
+    {
+    	return this.Moto2.getY(); 
     }
     
     public void MakeWall(int x, int y)
@@ -33,6 +55,14 @@ public final class ModelFacade implements IModel {
     	NbWall ++; 
     }
 
+	/**
+	 * Inform the view that the model have changed
+	 */
+	public void flush() {
+		this.setChanged();
+		this.notifyObservers();
+	}
+	
     @Override
     public Example getExampleById(final int id) throws SQLException {
         return ExampleDAO.getExampleById(id);

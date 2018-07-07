@@ -65,30 +65,42 @@ public class ControllerFacade implements IController {
 
 	@Override
 	public void orderPerform(Order order, int i) {
-		switch (order){
-		case LEFT:
-			if (i == 1)
-			{
-				Moto.move(Direction.LEFT);			
-			}
-			else 
-			{
-				Moto.move(Direction.LEFT);
-			}
-			break;
-			
-		case RIGHT:
-			if (i == 1)
-			{
-				hm.move(Direction.RIGHT);			
-			}
-			else 
-			{
+		if (i == 1)
+		{
+			switch (order){
+			case DOWN:
+				Moto.setdirection();
+				break;
+			case UP:
+				hm.move(Direction.UP);
+				break;
+			case LEFT:
+				hm.move(Direction.LEFT);
+				break;
+			case RIGHT:
 				hm.move(Direction.RIGHT);
-			}
-			break;
-		
+				break;
 		}
+		}
+		else if (i == 2)
+		{
+			switch (order){
+			case DOWN:
+				hm.move(Direction.DOWN);
+				break;
+			case UP:
+				hm.move(Direction.UP);
+				break;
+			case LEFT:
+				hm.move(Direction.LEFT);
+				break;
+			case RIGHT:
+				hm.move(Direction.RIGHT);
+				break;			
+		}
+		}
+		
+		this.model.flush();
 		
 	}
 

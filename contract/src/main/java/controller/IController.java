@@ -10,6 +10,6 @@ import view.Order;
  */
 public interface IController {
 
-	void orderPerform(Order order, int i);
 	void start();
+	void orderPerform(Order order, int i);
 }
