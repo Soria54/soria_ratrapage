@@ -37,6 +37,7 @@ g.setColor(Color.red);
 g.fillRect(11+(19*24),2+(18*9), 20, 20);
 
 
+
 }
 
 }

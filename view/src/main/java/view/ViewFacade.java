@@ -18,7 +18,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 
-public class ViewFacade extends JFrame implements IView, ActionListener, KeyListener  {
+public class ViewFacade extends JFrame implements IView, ActionListener  {
 
 	JButton bouton = new JButton("START");	
 	private Start Start = new Start();
@@ -84,35 +84,7 @@ public class ViewFacade extends JFrame implements IView, ActionListener, KeyList
     	
       }
 
-
-	public void keyPressed(KeyEvent key) 
-	{
-		int codeDeLaTouche = key.getKeyCode();
-		if (jouer == 1)
-		{
-			switch(codeDeLaTouche)
-			{
-				//joueur 1 
-				case KeyEvent.VK_UP:
-				this.controller.orderPerform(Order.RIGHT, 1);
-				break;
-			
-				case KeyEvent.VK_D:
-				this.controller.orderPerform(Order.LEFT, 1);
-				break;
-			
-				//joueur 2 
-				case KeyEvent.VK_6:
-					this.controller.orderPerform(Order.RIGHT, 2);
-				break;
-				case KeyEvent.VK_4:
-					this.controller.orderPerform(Order.LEFT, 2);
-				break;
-					
-			}	
-		}
-
-	}
+    
 
 
 	public controller.IController getController() {
@@ -127,18 +99,7 @@ public class ViewFacade extends JFrame implements IView, ActionListener, KeyList
 	}
 
 
-	@Override
-	public void keyReleased(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
 
-
-	@Override
-	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
     
 
 }

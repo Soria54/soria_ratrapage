@@ -6,26 +6,29 @@ public class Moto extends Element {
 	private int y; 
 	private int upx;
 	private int upy;
-	private int NbWall = 1;
+
 	
 	public Moto(int x, int y) {
 		super(x, y);
 		this.x = x;
 		this.y = y; 
 	}
+	
 	void roll() {
 		this.x = x + upx;
 		this.y = y + upy;
 	}
+	
     public void moveTo(int x, int y){
 		this.x = x;
 		this.y = y; 
     }
-    public void MakeWall()
+    
+    public void dead()
     {
-    	NbWall ++; 
-    	new Wall(x, y);
+    	alive = false;
     }
+
     // get and set 
     
 	public int getUpy() {

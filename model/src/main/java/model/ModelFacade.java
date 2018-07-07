@@ -12,12 +12,19 @@ import model.dao.ExampleDAO;
  * @version 1.0
  */
 public final class ModelFacade implements IModel {
-
+	private int NbWall = 1;
+	Wall wall[] = new Wall[598];
     /**
      * Instantiates a new model facade.
      */
     public ModelFacade() {
         super();
+    }
+    
+    public void MakeWall(int x, int y)
+    {
+    	wall[NbWall] = new Wall(x,y);
+    	NbWall ++; 
     }
 
     @Override

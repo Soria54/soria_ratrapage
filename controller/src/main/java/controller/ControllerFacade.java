@@ -90,4 +90,9 @@ public class ControllerFacade implements IController {
 		}
 		
 	}
+
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
 }
