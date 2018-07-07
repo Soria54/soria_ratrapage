@@ -23,7 +23,6 @@ public class ViewFacade extends JFrame implements IView, ActionListener  {
 	JButton bouton = new JButton("START");	
 	private Start Start = new Start();
 	private Grille Grille = new Grille();
-	private int jouer = 0;
 	private controller.IController controller;
 
 	
@@ -36,12 +35,13 @@ public class ViewFacade extends JFrame implements IView, ActionListener  {
     		    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
     		    this.setBackground(Color.BLACK);         
     		    
+    		    
     		    Start.setLayout(new BorderLayout());
     		    Start.add(bouton, BorderLayout.SOUTH);
     		    bouton.addActionListener(this);
     		    
     	        // j'ajoute un objet implémentant l'interface KeyListener à ma fenetre
-    	        addKeyListener(this);
+
     	         
 
     		    this.setContentPane(Start);
@@ -67,7 +67,6 @@ public class ViewFacade extends JFrame implements IView, ActionListener  {
     
     
     public void actionPerformed(ActionEvent arg0) {   
-        jouer = 1;
         this.setBackground(Color.CYAN);
         this.remove(bouton);
         this.remove(Start);
@@ -77,7 +76,7 @@ public class ViewFacade extends JFrame implements IView, ActionListener  {
     	this.revalidate();
     	
   
-      // controller.start();
+       controller.start();
 
 
 

@@ -37,6 +37,7 @@ public class ControllerFacade implements IController {
     	
 		this.clock = new Clock(this);
 		this.clock.start();
+		this.model.MakePlayer();
     	//  this.getView().displayMessage("message");
     	//	this.getView().displayMessage(this.getModel().getExampleById(1).toString());
     	//  this.getView().displayMessage(this.getModel().getExampleByName("Example 2").toString());
@@ -68,11 +69,11 @@ public class ControllerFacade implements IController {
 		case LEFT:
 			if (i == 1)
 			{
-				hm.move(Direction.LEFT);			
+				Moto.move(Direction.LEFT);			
 			}
 			else 
 			{
-				hm.move(Direction.LEFT);
+				Moto.move(Direction.LEFT);
 			}
 			break;
 			

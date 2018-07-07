@@ -11,6 +11,7 @@ import java.util.List;
  */
 public interface IModel {
 
+	public void MakePlayer();
     /**
      * Gets the example by id.
      *

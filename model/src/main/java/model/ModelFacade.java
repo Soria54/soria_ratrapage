@@ -3,6 +3,7 @@ package model;
 import java.sql.SQLException;
 import java.util.List;
 
+import controller.Moto;
 import model.dao.ExampleDAO;
 
 /**
@@ -19,6 +20,11 @@ public final class ModelFacade implements IModel {
      */
     public ModelFacade() {
         super();
+    }
+    
+    public void MakePlayer() {
+		Moto Moto1 = new Moto(5, 9);
+		Moto Moto2 = new Moto(24, 9);
     }
     
     public void MakeWall(int x, int y)
