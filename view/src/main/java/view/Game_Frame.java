@@ -1,13 +1,8 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 public class Game_Frame extends JFrame{
 	
@@ -29,13 +24,7 @@ public class Game_Frame extends JFrame{
 	    this.setBackground(Color.CYAN); 
 	    this.setLayout(null);
 	    position_joueur_base();
-	    
-
-	    
 	    this.setContentPane(Grille);
-	    
-
-	    
 	    this.setVisible(true);
 	    
 	}
