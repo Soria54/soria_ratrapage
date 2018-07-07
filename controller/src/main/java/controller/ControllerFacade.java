@@ -64,7 +64,7 @@ public class ControllerFacade implements IController {
     }
 
 	@Override
-	public void orderPerform(Order order, int i) {
+	public void orderPerform(Order order, int i, int x ,int y) {
 		if (i == 1)
 		{
 			switch (order){
@@ -103,7 +103,22 @@ public class ControllerFacade implements IController {
 		this.model.flush();
 		
 	}
-
+	
+    boolean canMoveOn(int x, int y){
+        
+        if(x > 562 || x < 11)
+        {
+            return false;
+        }
+        if(y > 308 || y < 2)
+        {
+            return false;
+        }
+        else
+        {
+        return true;
+        }
+    }
 	public void update() {
 		// TODO Auto-generated method stub
 		

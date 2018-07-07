@@ -11,5 +11,5 @@ import view.Order;
 public interface IController {
 
 	void start();
-	void orderPerform(Order order, int i);
+	void orderPerform(Order order, int i, int x, int y);
 }

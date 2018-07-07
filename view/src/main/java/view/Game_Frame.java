@@ -4,6 +4,8 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
+import controller.IController;
+import view.Order;
 
 import java.awt.event.*;
 
@@ -17,6 +19,7 @@ public class Game_Frame extends JFrame implements KeyListener{
 	Cube joueur1 = new Cube(Color.BLUE);
 	Cube joueur2 = new Cube(Color.RED);
 	
+	private IController controller;
 	/**
 	 * 
 	 */
@@ -63,32 +66,39 @@ public class Game_Frame extends JFrame implements KeyListener{
 		switch(e.getKeyCode())
 		{
 			case KeyEvent.VK_Z: 
-				
+				this.controller.orderPerform(Order.UP, 1, joueur1x, joueur1y);
 				this.joueur1y --;
 			break;
 			case KeyEvent.VK_S:
+				this.controller.orderPerform(Order.DOWN, 1, joueur1x, joueur1y);
 				this.joueur1y ++;
 			break;
 			case KeyEvent.VK_Q:
+				this.controller.orderPerform(Order.LEFT, 1, joueur1x, joueur1y);
 				this.joueur1x --;
 			break;
 			case KeyEvent.VK_D:
+				this.controller.orderPerform(Order.RIGHT, 1, joueur1x, joueur1y);
 				this.joueur1x ++;
 			break;
 				
 			case KeyEvent.VK_UP:
+				this.controller.orderPerform(Order.UP, 2, joueur2x, joueur2y);
 				this.joueur2y --;
 			break;
 
 			case KeyEvent.VK_DOWN:
+				this.controller.orderPerform(Order.DOWN, 2, joueur2x, joueur2y);
 				this.joueur2y ++;
 			break;
 
 			case KeyEvent.VK_LEFT:
+				this.controller.orderPerform(Order.LEFT, 2, joueur2x, joueur2y);
 				this.joueur2x --;
 			break;
 			
 			case KeyEvent.VK_RIGHT:
+				this.controller.orderPerform(Order.RIGHT, 2, joueur2x, joueur2y);
 				this.joueur2x ++;
 			break;
 			
@@ -113,6 +123,12 @@ public class Game_Frame extends JFrame implements KeyListener{
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 		
+	}
+	public IController getController() {
+		return controller;
+	}
+	public void setController(IController controller) {
+		this.controller = controller;
 	} 
 
 
