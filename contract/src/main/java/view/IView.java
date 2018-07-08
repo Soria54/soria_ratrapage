@@ -1,7 +1,5 @@
 package view;
 
-import java.util.Observer;
-
 import controller.IController;
 
 /**
@@ -21,10 +19,10 @@ public interface IView {
 	void repaint();
 	
     void displayMessage(String message);
-
-	Observer getObserver();
 	
 	public void setController(IController controller);
 
 	void position();
+	
+	void closeGame();
 }

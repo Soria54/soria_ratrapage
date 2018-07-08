@@ -2,28 +2,15 @@ package view;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.Observable;
-import java.util.Observer;
-
 import javax.swing.JPanel;
 
-import model.IModel;
-
-
-public class Grille extends JPanel implements Observer{
-	
-	private IModel model;
+public class Grille extends JPanel {
 	
 	private int joueur1x;
 	private int joueur1y;
 	private int joueur2x;
 	private int joueur2y;
 	
-	private int Nbwall;
-	private int wall1x[];
-	private int wall1y[];
-	private int wall2x[];
-	private int wall2y[];
 /**
 	 * 
 	 */
@@ -32,8 +19,6 @@ public class Grille extends JPanel implements Observer{
 public Grille() {
 	this.setLayout(null);
 	this.setBackground(Color.CYAN);
-	
-	
 }
 
 
@@ -71,13 +56,6 @@ public void paintComponent(Graphics g){
 }
 
 
-@Override
-public void update(Observable observable, Object o) 
-{
-	this.model = (IModel) observable;
-	this.repaint();
-}
-
 
 
 public void setJoueur1x(int joueur1x) {
@@ -97,26 +75,6 @@ public void setJoueur2y(int joueur2y) {
 }
 
 
-
-public void setNbwall(int nbwall) {
-	this.Nbwall = nbwall;
-}
-
-public void setWall1x(int wall1x) {
-	this.wall1x[Nbwall] = wall1x;
-}
-
-public void setWall1y(int wall1y) {
-	this.wall1y[Nbwall] = wall1y;
-}
-
-public void setWall2x(int wall2x) {
-	this.wall2x[Nbwall] = wall2x;
-}
-
-public void setWall2y(int wall2y) {
-	this.wall2y[Nbwall] = wall2y;
-}
 
 }
 

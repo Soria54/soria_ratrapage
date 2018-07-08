@@ -4,8 +4,6 @@ import java.sql.SQLException;
 import model.IModel;
 import view.IView;
 import view.Order;
-import java.util.Observable;
-import java.util.Observer;
 
 
 public class ControllerFacade implements IController {
@@ -31,7 +29,6 @@ public class ControllerFacade implements IController {
      *             the SQL exception
      */
     public void start() {
-    	this.model.getObservable().addObserver(this.view.getObserver());
 		this.clock = new Clock(this);
 		this.clock.start();
 		System.out.println("start");
@@ -78,6 +75,11 @@ public class ControllerFacade implements IController {
 				this.getModel().setMoto1x(this.getModel().position_joueur1x()+1);
 				break;
 		}
+			
+			if (canMoveOn(this.getModel().getMoto1x(), this.getModel().getMoto1y(), this.getModel().getMoto2x(), this.getModel().getMoto2y()) == false )
+			{
+				game_over("Player RED win");
+			}
 		}
 		else if (i == 2)
 		{
@@ -95,25 +97,52 @@ public class ControllerFacade implements IController {
 				this.getModel().setMoto2x(this.getModel().position_joueur2x()+1);
 				break;
 		}
+			if (canMoveOn(this.getModel().getMoto2x(), this.getModel().getMoto2y(), this.getModel().getMoto1x(), this.getModel().getMoto1y()) == false )
+			{
+				game_over("Player BLUE win");
+			}
 		}
 		this.getView().position();
 		this.getView().repaint();
 		
 	}
 	
-    boolean canMoveOn(int x, int y){
-        
-        if(x > 562 || x < 11)
+    boolean canMoveOn(int Myx, int Myy, int Otherx, int Othery){
+        int ok = 1;
+        if(Myx > 562 || Myx < 11)
         {
-            return false;
+            ok = 0;
         }
-        if(y > 308 || y < 2)
+        if(Myy > 308 || Myy < 2)
         {
-            return false;
+        	ok = 0;
         }
+        if(Myx == Otherx && Myy == Othery )
+        {
+        	game_over("none winner");
+        }
+	    for (int count = 0; count < this.getModel().getNbwall(); count++) 
+	    {
+	    	/*
+	    	System.out.println("test colision mur");
+	    	System.out.println("postion mur x " + this.getModel().getWallx(count));
+	    	System.out.println("postion mur y " + this.getModel().getWally(count));
+	    	System.out.println("postion x " + x);
+	    	System.out.println("postion y " + y);
+	    	*/
+	        if(this.getModel().getWallx(count) == Myx && this.getModel().getWally(count) == Myy)
+	        {
+	        	ok = 0;
+	        }
+	    }
+
+	    if (ok == 0)
+	    {
+	    	return false;
+	    }
         else
         {
-        return true;
+        	return true;
         }
     }
 	public void update() {
@@ -121,7 +150,11 @@ public class ControllerFacade implements IController {
 		
 	}
 	
-
+	public void game_over(String String)
+	{
+		this.getView().closeGame();
+		this.getView().displayMessage(String);
+	}
 
     /**
      * Gets the model.

@@ -1,11 +1,8 @@
 package model;
 
-import java.util.ArrayList;
 
 public class Moto extends Element {
-	private boolean alive = true;
 
-	private int direction;
 	private int x;
 	private int y; 
 
@@ -18,22 +15,9 @@ public class Moto extends Element {
 		
 	}
 	
-    public void dead()
-    {
-    	alive = false;
-    }
 
     // get and set 
-    
-	
-	public boolean isAlive() {
-		return alive;
-	}
-	public void setAlive(boolean alive) {
-		this.alive = alive;
-	}
-
-
+ 
 	public int getX() {
 		return x;
 	}

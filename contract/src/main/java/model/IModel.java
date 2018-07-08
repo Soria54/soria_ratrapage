@@ -2,7 +2,6 @@ package model;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Observable;
 
 public interface IModel {
 	
@@ -21,9 +20,9 @@ public interface IModel {
     public int position_joueur2x(); 
     public int position_joueur2y(); 
 
-    
-    void flush();
-    public Observable getObservable();
+    public int getNbwall();
+	public int getWallx(int nb);
+	public int getWally(int nb);
     /**
      * Gets the example by id.
      *

@@ -1,10 +1,7 @@
 package model;
 
-import java.awt.geom.Ellipse2D;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 
 
 import model.dao.ExampleDAO;
@@ -15,11 +12,11 @@ import model.dao.ExampleDAO;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public final class ModelFacade extends Observable implements IModel, Imodel_view {
-	private int NbWall = 1;
+public final class ModelFacade implements IModel, Imodel_view {
+	private int NbWall = 0;
 	private Moto Moto1;
 	private Moto Moto2;
-	Wall wall[] = new Wall[598];
+	private int wall[][] = new int [598][2];
     /**
      * Instantiates a new model facade.
      */
@@ -55,19 +52,31 @@ public final class ModelFacade extends Observable implements IModel, Imodel_view
     
     public void setMoto1x(int x) 
     {
+    	wall[NbWall][0] = this.Moto1.getX();
+    	wall[NbWall][1] = this.Moto1.getY();
     	this.Moto1.setX(x); 
+    	this.NbWall++;
     }
     public void setMoto1y(int y) 
     {
+    	wall[NbWall][0] = this.Moto1.getX();
+    	wall[NbWall][1] = this.Moto1.getY();
     	this.Moto1.setY(y);
+    	this.NbWall++;
     }
     public void setMoto2x(int x) 
     {
+    	wall[NbWall][0] = this.Moto2.getX();
+    	wall[NbWall][1] = this.Moto2.getY();
     	this.Moto2.setX(x); 
+    	this.NbWall++;
     }
     public void setMoto2y(int y) 
     {
+    	wall[NbWall][0] = this.Moto2.getX();
+    	wall[NbWall][1] = this.Moto2.getY();
     	this.Moto2.setY(y); 
+    	this.NbWall++;
     }
     
     
@@ -90,26 +99,26 @@ public final class ModelFacade extends Observable implements IModel, Imodel_view
     
     
     
-    
-    
-    
-    
-    public void MakeWall(int x, int y)
-    {
-    	wall[NbWall] = new Wall(x,y);
-    	NbWall ++; 
-    }
+	public int getNbwall() {
+		return NbWall;
+	}
 
-    
-	public void flush() {
-		this.setChanged();
-		this.notifyObservers();
+
+	public int getWallx(int nb) {
+		return wall[nb][0];
 	}
 	
-	public Observable getObservable() {
-		return this;
+	public int getWally(int nb) {
+		return wall[nb][1];
 	}
+
+
+	public void setNbwall(int nbwall) {
+		NbWall = nbwall;
+	}
+
 	
+
     @Override
     public Example getExampleById(final int id) throws SQLException {
         return ExampleDAO.getExampleById(id);
@@ -126,6 +135,10 @@ public final class ModelFacade extends Observable implements IModel, Imodel_view
     public List<Example> getAllExamples() throws SQLException {
         return ExampleDAO.getAllExamples();
     }
+
+
+
+
 
 
 

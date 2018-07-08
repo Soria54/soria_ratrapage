@@ -3,7 +3,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Observer;
 
 import javax.swing.*;
 
@@ -49,7 +48,10 @@ public class ViewFacade extends JFrame implements IView, ActionListener  {
 	{
 		this.setVisible(false);
 	}
-    
+    public void closeGame()
+    {
+    	this.frame.setVisible(false);
+    }
     /*
      * (non-Javadoc)
      * @see view.IView#displayMessage(java.lang.String)
@@ -79,11 +81,6 @@ public class ViewFacade extends JFrame implements IView, ActionListener  {
 	public void setController(IController controller) {
 		this.controller = controller;
 		this.frame.setController(controller);
-	}
-
-	public Observer getObserver() 
-	{
-		return this.frame.getGamePanel();
 	}
 	
 	public void repaint() {
