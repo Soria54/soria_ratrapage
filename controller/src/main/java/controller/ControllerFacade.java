@@ -12,15 +12,18 @@ import view.Order;
 
 public class ControllerFacade implements IController {
 
-
+	/** The view. */
+	private IView	view;
+	
     /** The model. */
     private final IModel model;
     
 	/** The clock of the game */
 	private Clock clock;
 
-    public ControllerFacade( final IModel model) {
+    public ControllerFacade( final IModel model, IView view) {
         super();
+        this.setView(view);
         this.model = model;
     }
 
@@ -31,7 +34,7 @@ public class ControllerFacade implements IController {
      *             the SQL exception
      */
     public void start() {
-    	
+    	this.model.getObservable().addObserver(this.view.getObserver());
 		this.clock = new Clock(this);
 		this.clock.start();
     	//  this.getView().displayMessage("message");
@@ -43,21 +46,21 @@ public class ControllerFacade implements IController {
 
 
 	@Override
-	public void orderPerform(Order order, int i, int x ,int y) {
+	public void orderPerform(Order order, int i) {
 		if (i == 1)
 		{
 			switch (order){
 			case DOWN:
-				this.getModel().setMoto1y(y-1);
+				//this.getModel().setMoto1y(y-1);
 				break;
 			case UP:
-				this.getModel().setMoto1y(y+1);
+				//this.getModel().setMoto1y(y+1);
 				break;
 			case LEFT:
-				this.getModel().setMoto1x(x-1);
+				//this.getModel().setMoto1x(x-1);
 				break;
 			case RIGHT:
-				this.getModel().setMoto1x(x+1);
+				//this.getModel().setMoto1x(x+1);
 				break;
 		}
 		}
@@ -65,16 +68,16 @@ public class ControllerFacade implements IController {
 		{
 			switch (order){
 			case DOWN:
-				this.getModel().setMoto2y(y-1);
+				//this.getModel().setMoto2y(y-1);
 				break;
 			case UP:
-				this.getModel().setMoto2y(y+1);
+				//this.getModel().setMoto2y(y+1);
 				break;
 			case LEFT:
-				this.getModel().setMoto2x(x-1);
+				//this.getModel().setMoto2x(x-1);
 				break;
 			case RIGHT:
-				this.getModel().setMoto2x(x+1);
+				//this.getModel().setMoto2x(x+1);
 				break;	
 		}
 		}
@@ -113,5 +116,13 @@ public class ControllerFacade implements IController {
     public IModel getModel() {
         return this.model;
     }
+
+	public IView getView() {
+		return view;
+	}
+
+	public void setView(IView view) {
+		this.view = view;
+	}
 	
 }

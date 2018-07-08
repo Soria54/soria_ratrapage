@@ -3,6 +3,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Observer;
+
 import javax.swing.*;
 
 import controller.IController;
@@ -15,8 +17,7 @@ public class ViewFacade extends JFrame implements IView, ActionListener  {
 	private IController controller;
 	private Game_Frame frame;
 	
-    public ViewFacade(IController controllerFacade) {
-    			this.controller = controllerFacade;
+    public ViewFacade() {
     		    this.setTitle("TRON");
     		    this.setSize(600, 400);
     		    this.setLocationRelativeTo(null);
@@ -70,9 +71,14 @@ public class ViewFacade extends JFrame implements IView, ActionListener  {
 
 
 	public void setController(IController controller) {
+		this.controller = controller;
 		this.frame.setController(controller);
 	}
 
+	public Observer getObserver() 
+	{
+		return this.frame.getGamePanel();
+	}
     
 
 

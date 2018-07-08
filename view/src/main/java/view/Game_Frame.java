@@ -6,29 +6,24 @@ import javax.swing.JLabel;
 import javax.swing.SwingUtilities;
 import controller.IController;
 import view.Order;
-import model.IModel;
+
 import java.awt.event.*;
 
 
-
 public class Game_Frame extends JFrame implements KeyListener{
-	int joueur1x=5;
-	int joueur1y=8;
-	int joueur2x=24;
-	int joueur2y=8;
+
 	
 	Cube joueur1 = new Cube(Color.BLUE);
 	Cube joueur2 = new Cube(Color.RED);
 	
 	private IController controller;
-	private IModel model;
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 6961787722092453231L;
 	
 	private JLabel time = new JLabel();
-	private Grille Grille = new Grille();
+	private Grille Grille; 
 	
 	
 	Game_Frame(){
@@ -39,26 +34,14 @@ public class Game_Frame extends JFrame implements KeyListener{
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   
 	    this.setBackground(Color.CYAN); 
 	    this.setLayout(null);
-	    position_joueur();
+	    this.Grille = new Grille();
+	   // position_joueur();
 	    this.setContentPane(Grille);
 	    this.setVisible(true);
 		this.addKeyListener(this);
 	    
 	}
-	public void position_joueur(){
-	    
-		joueur1.setLocation(11+(19*joueur1x),2+(18*joueur1y));
-	    Grille.add(joueur1);
-	    
-	   
-	    joueur2.setLocation(11+(19*joueur2x),2+(18*joueur2y));
-	    Grille.add(joueur2);
-	    
-	    Time Time = new Time();
-	    Time.setLocation(11+(19*5),2+(325));
-	    Grille.add(Time);
-	}
-	
+
 	public void closeFrame()
 	{
 		this.setVisible(false);
@@ -68,40 +51,40 @@ public class Game_Frame extends JFrame implements KeyListener{
 		switch(e.getKeyCode())
 		{
 			case KeyEvent.VK_Z: 
-				this.controller.orderPerform(Order.UP, 1, joueur1x, joueur1y);
-				this.joueur1y --;
+				this.controller.orderPerform(Order.UP, 1);
+				
 			break;
 			case KeyEvent.VK_S:
-				this.controller.orderPerform(Order.DOWN, 1, joueur1x, joueur1y);
-				this.joueur1y ++;
+				this.controller.orderPerform(Order.DOWN, 1);
+				
 			break;
 			case KeyEvent.VK_Q:
-				this.controller.orderPerform(Order.LEFT, 1, joueur1x, joueur1y);
-				this.joueur1x --;
+				this.controller.orderPerform(Order.LEFT, 1);
+				
 			break;
 			case KeyEvent.VK_D:
-				this.controller.orderPerform(Order.RIGHT, 1, joueur1x, joueur1y);
-				this.joueur1x ++;
+				this.controller.orderPerform(Order.RIGHT,1);
+				
 			break;
 				
 			case KeyEvent.VK_UP:
-				this.controller.orderPerform(Order.UP, 2, joueur2x, joueur2y);
-				this.joueur2y --;
+				this.controller.orderPerform(Order.UP, 2);
+				
 			break;
 
 			case KeyEvent.VK_DOWN:
-				this.controller.orderPerform(Order.DOWN, 2, joueur2x, joueur2y);
-				this.joueur2y ++;
+				this.controller.orderPerform(Order.DOWN, 2);
+				
 			break;
 
 			case KeyEvent.VK_LEFT:
-				this.controller.orderPerform(Order.LEFT, 2, joueur2x, joueur2y);
-				this.joueur2x --;
+				this.controller.orderPerform(Order.LEFT, 2);
+				
 			break;
 			
 			case KeyEvent.VK_RIGHT:
-				this.controller.orderPerform(Order.RIGHT, 2, joueur2x, joueur2y);
-				this.joueur2x ++;
+				this.controller.orderPerform(Order.RIGHT, 2);
+				
 			break;
 			
 			case KeyEvent.VK_SPACE:
@@ -113,7 +96,7 @@ public class Game_Frame extends JFrame implements KeyListener{
 			break;
 			
 		}
-		position_joueur();
+		//position_joueur();
 		SwingUtilities.updateComponentTreeUI(this);
 	}
 	@Override
@@ -133,6 +116,9 @@ public class Game_Frame extends JFrame implements KeyListener{
 		this.controller = controller;
 	} 
 
-
+	public Grille getGamePanel()
+	{
+		return this.Grille;
+	}
 
 }

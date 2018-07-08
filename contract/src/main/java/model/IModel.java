@@ -2,7 +2,7 @@ package model;
 
 import java.sql.SQLException;
 import java.util.List;
-
+import java.util.Observable;
 
 public interface IModel {
 
@@ -15,6 +15,10 @@ public interface IModel {
     public void setMoto1y(int y); 
     public void setMoto2x(int x); 
     public void setMoto2y(int y);
+    
+    
+    void flush();
+    public Observable getObservable();
     /**
      * Gets the example by id.
      *

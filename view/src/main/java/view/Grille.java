@@ -2,12 +2,16 @@ package view;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.JPanel;
 
-public class Grille extends JPanel {
+import model.IModel;
+
+public class Grille extends JPanel implements Observer{
 	
-	
+	private IModel model;
 /**
 	 * 
 	 */
@@ -36,6 +40,23 @@ public void paintComponent(Graphics g){
 		g.drawLine(0+11, uniteY*i+2, uniteX*30+11, uniteY*i+2);
 		}
 		
+		
+		//j1
+		g.setColor(Color.blue);
+		g.fillRect(11+(19*5),2+(18*8), 20, 20);
+		
+		//j2
+		g.setColor(Color.red);
+		g.fillRect(11+(19*24),2+(18*8), 20, 20);
+		
+		
+}
+
+@Override
+public void update(Observable observable, Object o) 
+{
+	this.model = (IModel) observable;
+	this.repaint();
 }
 
 

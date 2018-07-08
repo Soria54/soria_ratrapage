@@ -4,6 +4,7 @@ import java.awt.geom.Ellipse2D;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 
 import model.dao.ExampleDAO;
@@ -14,7 +15,7 @@ import model.dao.ExampleDAO;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public final class ModelFacade implements IModel, Imodel_view {
+public final class ModelFacade extends Observable implements IModel, Imodel_view {
 	private int NbWall = 1;
 	private Moto Moto1;
 	private Moto Moto2;
@@ -27,7 +28,6 @@ public final class ModelFacade implements IModel, Imodel_view {
 		this.Moto1 = new Moto(5, 9);
 		this.Moto2 = new Moto(24, 9);
     }
-    
 
     
     
@@ -49,6 +49,7 @@ public final class ModelFacade implements IModel, Imodel_view {
     {
     	return this.Moto2.getY(); 
     }
+    
     
     
     public void setMoto1x(int x) 
@@ -75,6 +76,15 @@ public final class ModelFacade implements IModel, Imodel_view {
     	NbWall ++; 
     }
 
+    
+	public void flush() {
+		this.setChanged();
+		this.notifyObservers();
+	}
+	
+	public Observable getObservable() {
+		return this;
+	}
 	
     @Override
     public Example getExampleById(final int id) throws SQLException {
