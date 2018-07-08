@@ -19,6 +19,7 @@ public class Grille extends JPanel {
 public Grille() {
 	this.setLayout(null);
 	this.setBackground(Color.CYAN);
+
 }
 
 
@@ -43,6 +44,9 @@ public void paintComponent(Graphics g){
 
 		
 		//j1
+		// forme a aparaitre 
+		g.setColor(Color.blue);
+		g.fillRect(11+(19*5),2+(18*8), 20, 20);
 		Cube Cube1 = new Cube(Color.blue);
 		Cube1.setLocation(this.joueur1x, this.joueur1y);
 		this.add(Cube1);

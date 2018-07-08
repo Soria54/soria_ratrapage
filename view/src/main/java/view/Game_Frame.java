@@ -12,8 +12,6 @@ import java.awt.event.*;
 public class Game_Frame extends JFrame implements KeyListener{
 
 	
-	Cube joueur1 = new Cube(Color.BLUE);
-	Cube joueur2 = new Cube(Color.RED);
 	
 	private IController controller;
 	/**
@@ -105,7 +103,7 @@ public class Game_Frame extends JFrame implements KeyListener{
 			
 		}
 		//position_joueur();
-		SwingUtilities.updateComponentTreeUI(this);
+		//SwingUtilities.updateComponentTreeUI(this);
 	}
 	@Override
 	public void keyReleased(KeyEvent arg0) {
@@ -132,6 +130,9 @@ public class Game_Frame extends JFrame implements KeyListener{
 	public Grille getGamePanel()
 	{
 		return this.Grille;
+	}
+	public void settime() {
+		this.time.setTimer(this.controller.time());
 	}
 
 }

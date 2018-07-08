@@ -16,6 +16,10 @@ public class ControllerFacade implements IController {
     
 	/** The clock of the game */
 	private Clock clock;
+	
+	private Order lastOrder2 = Order.LEFT;;
+	private Order lastOrder1 = Order.RIGHT;
+	
 
     public ControllerFacade( final IModel model, final IView view) {
         this.setView(view);
@@ -38,6 +42,7 @@ public class ControllerFacade implements IController {
 
     }
 
+
     
     // je fait sa car impossible de comuniquer model vus directement
 		public int TransMoto1x() {
@@ -59,6 +64,19 @@ public class ControllerFacade implements IController {
 	public void orderPerform(Order order, int i) {
 		if (i == 1)
 		{
+			this.lastOrder1 = order;
+		}
+		else if (i == 2)
+		{
+			this.lastOrder2 = order;
+		}
+		
+	}
+	
+	public void ActionorderPerform(Order order, int i) {
+		if (i == 1)
+		{
+			this.lastOrder1 = order;
 			switch (order){
 			case DOWN:
 				//System.out.println(this.getModel().position_joueur1y());
@@ -83,6 +101,7 @@ public class ControllerFacade implements IController {
 		}
 		else if (i == 2)
 		{
+			this.lastOrder2 = order;
 			switch (order){
 			case DOWN:
 				this.getModel().setMoto2y(this.getModel().position_joueur2y()+1);
@@ -145,17 +164,20 @@ public class ControllerFacade implements IController {
         	return true;
         }
     }
-	public void update() {
-		// TODO Auto-generated method stub
-		
-	}
+
 	
 	public void game_over(String String)
 	{
 		this.getView().closeGame();
 		this.getView().displayMessage(String);
+		this.clock.stop();
 	}
 
+	@Override
+	public int time() {
+		return this.clock.getTickNumber();
+	}
+	
     /**
      * Gets the model.
      *
@@ -172,5 +194,14 @@ public class ControllerFacade implements IController {
 	public void setView(IView view) {
 		this.view = view;
 	}
+
+	public void update() {
+		ActionorderPerform(this.lastOrder1, 1);
+		ActionorderPerform(this.lastOrder2, 2);
+		 this.view.time_vus();
+		
+	}
+
+
 	
 }

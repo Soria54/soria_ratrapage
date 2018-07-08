@@ -25,4 +25,6 @@ public interface IView {
 	void position();
 	
 	void closeGame();
+	
+	public void time_vus();
 }

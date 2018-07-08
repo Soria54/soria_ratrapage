@@ -12,6 +12,7 @@ public interface IController {
 
 	void start();
 	void orderPerform(Order order, int i);
+	public int time();
 	public int TransMoto1x();
 	public int TransMoto1y();
 	public int TransMoto2x();

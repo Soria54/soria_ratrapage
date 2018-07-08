@@ -1,8 +1,7 @@
 package controller;
 
-import controller.IController;
 
-import java.util.Observable;
+
 
 public class Clock extends Thread {
 
@@ -17,7 +16,7 @@ public class Clock extends Thread {
     private boolean stopped;
     /** The default interval between two ticks
      */
-    public static int DEFAULT_TICK_INTERVAL = 100;
+    public static int DEFAULT_TICK_INTERVAL = 250;
 
 
     private ControllerFacade controller;
@@ -69,7 +68,7 @@ public class Clock extends Thread {
      * The number of ticks since the beginning.
      */
     public int getTickNumber() {
-        return tickNumber;
+        return tickNumber/4;
     }
 
     /**

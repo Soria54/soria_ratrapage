@@ -86,7 +86,9 @@ public class ViewFacade extends JFrame implements IView, ActionListener  {
 	public void repaint() {
 		this.frame.repaintpanel();
 	}
-
+	public void time_vus() {
+		this.frame.settime();
+	}
 
 	@Override
 	public void position() {
