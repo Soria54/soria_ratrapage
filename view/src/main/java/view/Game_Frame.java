@@ -22,7 +22,7 @@ public class Game_Frame extends JFrame implements KeyListener{
 	 */
 	private static final long serialVersionUID = 6961787722092453231L;
 	
-	private JLabel time = new JLabel();
+	private Time time;
 	private Grille Grille; 
 	
 	
@@ -35,13 +35,22 @@ public class Game_Frame extends JFrame implements KeyListener{
 	    this.setBackground(Color.CYAN); 
 	    this.setLayout(null);
 	    this.Grille = new Grille();
-	   // position_joueur();
-	    this.setContentPane(Grille);
+	    this.time = new Time();
+	    this.time.setLocation(106, 327);
+	    this.Grille.add(time);
+	    this.setContentPane(this.Grille);
 	    this.setVisible(true);
 		this.addKeyListener(this);
 	    
 	}
-
+	
+	public void positon() {
+		this.Grille.setJoueur1x(this.controller.TransMoto1x());
+		this.Grille.setJoueur1y(this.controller.TransMoto1y());
+		this.Grille.setJoueur2x(this.controller.TransMoto2x());
+		this.Grille.setJoueur2y(this.controller.TransMoto2y());
+	}
+	
 	public void closeFrame()
 	{
 		this.setVisible(false);
@@ -109,6 +118,11 @@ public class Game_Frame extends JFrame implements KeyListener{
 		// TODO Auto-generated method stub
 		
 	}
+	public void repaintpanel() {
+		this.Grille.repaint();
+		SwingUtilities.updateComponentTreeUI(this);
+	}
+	
 	public IController getController() {
 		return controller;
 	}

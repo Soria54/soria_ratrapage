@@ -2,6 +2,8 @@ package view;
 
 import java.util.Observer;
 
+import controller.IController;
+
 /**
  * <h1>The Interface IView.</h1>
  *
@@ -16,7 +18,13 @@ public interface IView {
      * @param message
      *            the message
      */
+	void repaint();
+	
     void displayMessage(String message);
 
 	Observer getObserver();
+	
+	public void setController(IController controller);
+
+	void position();
 }

@@ -9,9 +9,15 @@ import javax.swing.JPanel;
 
 import model.IModel;
 
+
 public class Grille extends JPanel implements Observer{
 	
 	private IModel model;
+	
+	private int joueur1x;
+	private int joueur1y;
+	private int joueur2x;
+	private int joueur2y;
 /**
 	 * 
 	 */
@@ -21,7 +27,10 @@ public Grille() {
 	this.setLayout(null);
 	this.setBackground(Color.CYAN);
 	
+	
 }
+
+
 
 public void paintComponent(Graphics g){
 
@@ -42,12 +51,14 @@ public void paintComponent(Graphics g){
 		
 		
 		//j1
+		//moto1 = this.model.getMoto1();
+		
 		g.setColor(Color.blue);
-		g.fillRect(11+(19*5),2+(18*8), 20, 20);
+		g.fillRect(this.joueur1x,this.joueur1y, 20, 20);
 		
 		//j2
 		g.setColor(Color.red);
-		g.fillRect(11+(19*24),2+(18*8), 20, 20);
+		g.fillRect(this.joueur2x,this.joueur2y, 20, 20);
 		
 		
 }
@@ -57,6 +68,24 @@ public void update(Observable observable, Object o)
 {
 	this.model = (IModel) observable;
 	this.repaint();
+}
+
+
+
+public void setJoueur1x(int joueur1x) {
+	this.joueur1x = joueur1x;
+}
+
+public void setJoueur1y(int joueur1y) {
+	this.joueur1y = joueur1y;
+}
+
+public void setJoueur2x(int joueur2x) {
+	this.joueur2x = joueur2x;
+}
+
+public void setJoueur2y(int joueur2y) {
+	this.joueur2y = joueur2y;
 }
 
 

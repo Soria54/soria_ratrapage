@@ -12,6 +12,11 @@ import controller.IController;
 
 public class ViewFacade extends JFrame implements IView, ActionListener  {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8518650981858728759L;
+	
 	JButton bouton = new JButton("START");	
 	private Start Start = new Start();
 	private IController controller;
@@ -60,6 +65,7 @@ public class ViewFacade extends JFrame implements IView, ActionListener  {
     	closeFrame();
     	frame = new Game_Frame();
     	setController(this.controller);
+    	position();
     	this.controller.start();
     	
       }
@@ -79,8 +85,17 @@ public class ViewFacade extends JFrame implements IView, ActionListener  {
 	{
 		return this.frame.getGamePanel();
 	}
-    
+	
+	public void repaint() {
+		this.frame.repaintpanel();
+	}
 
+
+	@Override
+	public void position() {
+		this.frame.positon();
+		
+	}
 
 
 

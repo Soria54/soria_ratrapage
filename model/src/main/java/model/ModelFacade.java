@@ -25,13 +25,14 @@ public final class ModelFacade extends Observable implements IModel, Imodel_view
      */
     public ModelFacade() {
         super();
-		this.Moto1 = new Moto(5, 9);
-		this.Moto2 = new Moto(24, 9);
+		this.Moto1 = new Moto(5, 8);
+		this.Moto2 = new Moto(24, 8);
+		System.out.println("creation moto ok");
     }
 
     
-    
-    
+  
+    //les joueur 
     public int getMoto1x() 
     {
     	return this.Moto1.getX(); 
@@ -49,7 +50,7 @@ public final class ModelFacade extends Observable implements IModel, Imodel_view
     {
     	return this.Moto2.getY(); 
     }
-    
+
     
     
     public void setMoto1x(int x) 
@@ -68,6 +69,29 @@ public final class ModelFacade extends Observable implements IModel, Imodel_view
     {
     	this.Moto2.setY(y); 
     }
+    
+    
+    public int position_joueur1x() 
+    {
+    	return this.Moto1.positionX();
+    }
+    public int position_joueur1y() 
+    {
+    	return this.Moto1.positionY();
+    }
+    public int position_joueur2x() 
+    {
+    	return this.Moto2.positionX();
+    }
+    public int position_joueur2y() 
+    {
+    	return this.Moto2.positionY();
+    }
+    
+    
+    
+    
+    
     
     
     public void MakeWall(int x, int y)
@@ -102,6 +126,12 @@ public final class ModelFacade extends Observable implements IModel, Imodel_view
     public List<Example> getAllExamples() throws SQLException {
         return ExampleDAO.getAllExamples();
     }
+
+
+
+
+
+
 
 
 

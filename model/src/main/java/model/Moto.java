@@ -50,7 +50,15 @@ public class Moto extends Element {
 
 
 	public void setY(int y) {
-		this.y = 11 + (18*y);
+		this.y = 2 + (18*y);
+	}
+	
+	public int positionX() {
+		return (x-11)/19;
+	}
+	
+	public int positionY() {
+		return (y-2)/18;
 	}
 
 }
