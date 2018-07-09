@@ -171,6 +171,7 @@ public class ControllerFacade implements IController {
 		this.getView().closeGame();
 		this.getView().displayMessage(String);
 		this.clock.stop();
+		System.exit(0);
 	}
 
 	@Override
