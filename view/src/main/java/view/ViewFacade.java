@@ -8,19 +8,24 @@ import javax.swing.*;
 
 import controller.IController;
 
-
+/**
+ * 
+ * @author soria
+ *
+ */
 public class ViewFacade extends JFrame implements IView, ActionListener  {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -8518650981858728759L;
-	
+	/** new button for start*/
 	JButton bouton = new JButton("START");	
+	/** new start for menu*/
 	private Start Start = new Start();
+	/** the controller*/
 	private IController controller;
+	/** the game frame*/
 	private Game_Frame frame;
 	
+	/**instanci Wies  */
     public ViewFacade() {
     		    this.setTitle("TRON");
     		    this.setSize(600, 400);
@@ -43,11 +48,12 @@ public class ViewFacade extends JFrame implements IView, ActionListener  {
     		    
     		  }
     
-    
+    /**close frame (widows menu)*/
 	public void closeFrame()
 	{
 		this.setVisible(false);
 	}
+	/**close panel game */
     public void closeGame()
     {
     	this.frame.setVisible(false);
@@ -57,12 +63,19 @@ public class ViewFacade extends JFrame implements IView, ActionListener  {
      * @see view.IView#displayMessage(java.lang.String)
      * 
      */
+    /**
+     * show a message on a new window
+     * @param message
+     */
     @Override
     public final void displayMessage(final String message) {
       JOptionPane.showMessageDialog(null, message);
     }
     
-    
+    /**
+     * if you press the button it closes the menu page
+     * @param ActionEvent arg0 (click button)
+     */
     public void actionPerformed(ActionEvent arg0) {   
     	closeFrame();
     	frame = new Game_Frame();
@@ -77,19 +90,33 @@ public class ViewFacade extends JFrame implements IView, ActionListener  {
 		return controller;
 	}
 
-
+	/**
+	 * set the controller associated to the view
+	 * @param controller
+	 * The controller associated
+     */
 	public void setController(IController controller) {
 		this.controller = controller;
 		this.frame.setController(controller);
 	}
 	
+	/**
+	 * refresh panel 
+	 */
 	public void repaint() {
 		this.frame.repaintpanel();
 	}
+	
+	/**
+	 * refresh time 
+	 */
 	public void time_vus() {
 		this.frame.settime();
 	}
 
+	/**
+	 * refresh position of motorcycles
+	 */
 	@Override
 	public void position() {
 		this.frame.positon();

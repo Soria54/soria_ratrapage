@@ -3,19 +3,38 @@ package view;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
-
+/**
+ * 
+ * @author soria
+ *
+ */
 public class Grille extends JPanel {
 	
+	/**
+	 * position x player 1 
+	 */
 	private int joueur1x;
+	
+	/**
+	 * position y player 1
+	 */
 	private int joueur1y;
+	
+	/**
+	 * position x player 2
+	 */
 	private int joueur2x;
+	
+	/**
+	 * position y player 2
+	 */
 	private int joueur2y;
 	
-/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1167541544005820737L;
 
+	/**
+	 * Intense Grille 
+	 */
 public Grille() {
 	this.setLayout(null);
 	this.setBackground(Color.CYAN);
@@ -23,7 +42,9 @@ public Grille() {
 }
 
 
-
+/**
+ * content of the panel
+ */
 public void paintComponent(Graphics g){
 
 
@@ -61,19 +82,34 @@ public void paintComponent(Graphics g){
 
 
 
-
+/**
+ * change the player's 1 position x
+ * @param joueur1x
+ */
 public void setJoueur1x(int joueur1x) {
 	this.joueur1x = joueur1x;
 }
 
+/**
+ * change the player's 2 position y
+ * @param joueur1y
+ */
 public void setJoueur1y(int joueur1y) {
 	this.joueur1y = joueur1y;
 }
 
+/**
+ * change the player's 1 position x
+ * @param joueur2x
+ */
 public void setJoueur2x(int joueur2x) {
 	this.joueur2x = joueur2x;
 }
 
+/**
+ * change the player's 2 position y
+ * @param joueur2y
+ */
 public void setJoueur2y(int joueur2y) {
 	this.joueur2y = joueur2y;
 }

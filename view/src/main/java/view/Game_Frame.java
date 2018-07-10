@@ -8,21 +8,31 @@ import view.Order;
 
 import java.awt.event.*;
 
-
+/**
+ * 
+ * @author soria
+ *
+ */
 public class Game_Frame extends JFrame implements KeyListener{
 
-	
-	
-	private IController controller;
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6961787722092453231L;
-	
+	/**
+	 * The controller 
+	 */
+	private IController controller;
+	/** 
+	 * panel time with time in second 
+	 */
 	private Time time;
+	
+	/**
+	 * panel grille is a grid
+	 */
 	private Grille Grille; 
 	
-	
+	/**
+	 * Instance Gamme frame 
+	 */
 	Game_Frame(){
 	    this.setTitle("TRON");
 	    this.setSize(600, 400);
@@ -41,6 +51,9 @@ public class Game_Frame extends JFrame implements KeyListener{
 	    
 	}
 	
+	/** 
+	 * place the bikes on the map
+	 */
 	public void positon() {
 		this.Grille.setJoueur1x(this.controller.TransMoto1x());
 		this.Grille.setJoueur1y(this.controller.TransMoto1y());
@@ -48,10 +61,16 @@ public class Game_Frame extends JFrame implements KeyListener{
 		this.Grille.setJoueur2y(this.controller.TransMoto2y());
 	}
 	
+	/**
+	 * close frame, close windows 
+	 */
 	public void closeFrame()
 	{
 		this.setVisible(false);
 	}
+	/**
+	 * capture the action of keys on the keyboard
+	 */
 	@Override
 	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode())
@@ -115,22 +134,42 @@ public class Game_Frame extends JFrame implements KeyListener{
 		// TODO Auto-generated method stub
 		
 	}
+	/** 
+	 * refresh frame and panel 
+	 */
 	public void repaintpanel() {
 		this.Grille.repaint();
 		SwingUtilities.updateComponentTreeUI(this);
 	}
 	
+	/**
+	 * @return
+	 * controller
+	 */
 	public IController getController() {
 		return controller;
 	}
+	
+	/**
+	 * new controller 
+	 * @param controller
+	 */
 	public void setController(IController controller) {
 		this.controller = controller;
 	} 
 
+	/**
+	 * get game panel
+	 * @return
+	 */
 	public Grille getGamePanel()
 	{
 		return this.Grille;
 	}
+	
+	/**
+	 * recover time in seconds
+	 */
 	public void settime() {
 		this.time.setTimer(this.controller.time());
 	}
