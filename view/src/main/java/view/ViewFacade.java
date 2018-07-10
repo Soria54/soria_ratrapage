@@ -65,7 +65,7 @@ public class ViewFacade extends JFrame implements IView, ActionListener  {
      */
     /**
      * show a message on a new window
-     * @param message
+     * @param message - message
      */
     @Override
     public final void displayMessage(final String message) {
@@ -74,7 +74,7 @@ public class ViewFacade extends JFrame implements IView, ActionListener  {
     
     /**
      * if you press the button it closes the menu page
-     * @param ActionEvent arg0 (click button)
+     * @param arg0  arg0 (click button)
      */
     public void actionPerformed(ActionEvent arg0) {   
     	closeFrame();
@@ -92,7 +92,7 @@ public class ViewFacade extends JFrame implements IView, ActionListener  {
 
 	/**
 	 * set the controller associated to the view
-	 * @param controller
+	 * @param controller - controller
 	 * The controller associated
      */
 	public void setController(IController controller) {

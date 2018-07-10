@@ -48,7 +48,7 @@ class DBProperties extends Properties {
 	/**
 	 * Gets the url.
 	 *
-	 * @return the url
+	 * @return - the url
 	 */
 	public String getUrl() {
 		return this.url;
@@ -57,7 +57,7 @@ class DBProperties extends Properties {
 	/**
 	 * Sets the url.
 	 *
-	 * @param url
+	 * @param url - url
 	 *          the new url
 	 */
 	private void setUrl(final String url) {
@@ -67,7 +67,7 @@ class DBProperties extends Properties {
 	/**
 	 * Gets the login.
 	 *
-	 * @return the login
+	 * @return - the login
 	 */
 	public String getLogin() {
 		return this.login;
@@ -76,7 +76,7 @@ class DBProperties extends Properties {
 	/**
 	 * Sets the login.
 	 *
-	 * @param login
+	 * @param login - login
 	 *          the new login
 	 */
 	private void setLogin(final String login) {
@@ -86,7 +86,7 @@ class DBProperties extends Properties {
 	/**
 	 * Gets the password.
 	 *
-	 * @return the password
+	 * @return - the password
 	 */
 	public String getPassword() {
 		return this.password;
@@ -95,7 +95,7 @@ class DBProperties extends Properties {
 	/**
 	 * Sets the password.
 	 *
-	 * @param password
+	 * @param password - password
 	 *          the new password
 	 */
 	private void setPassword(final String password) {

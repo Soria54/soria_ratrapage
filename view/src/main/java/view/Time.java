@@ -33,7 +33,7 @@ public class Time extends JPanel {
 
 	/***
 	 * change the time variable
-	 * @param timer
+	 * @param timer - timer
 	 */
 	public void setTimer(int timer) {
 		this.timer = timer;

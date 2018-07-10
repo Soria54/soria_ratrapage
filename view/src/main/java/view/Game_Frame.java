@@ -143,8 +143,7 @@ public class Game_Frame extends JFrame implements KeyListener{
 	}
 	
 	/**
-	 * @return
-	 * controller
+	 * @return - controller
 	 */
 	public IController getController() {
 		return controller;
@@ -152,7 +151,7 @@ public class Game_Frame extends JFrame implements KeyListener{
 	
 	/**
 	 * new controller 
-	 * @param controller
+	 * @param controller - controller
 	 */
 	public void setController(IController controller) {
 		this.controller = controller;
@@ -160,7 +159,7 @@ public class Game_Frame extends JFrame implements KeyListener{
 
 	/**
 	 * get game panel
-	 * @return
+	 * @return - grille 
 	 */
 	public Grille getGamePanel()
 	{
