@@ -3,28 +3,43 @@ package view;
 import controller.IController;
 
 /**
- * <h1>The Interface IView.</h1>
+ * 
+ * @author soria
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
- * @version 1.0
  */
 public interface IView {
 
-    /**
-     * Display message.
-     *
-     * @param message
-     *            the message
-     */
+	/**
+	 * refresh the panel and frame
+	 */
 	void repaint();
 	
+	/**
+	 * 
+	 * @param message
+	 * shows a new frame with a message
+	 */
     void displayMessage(String message);
 	
+    /**
+     * 
+     * @param controller
+     * send the controller
+     */
 	public void setController(IController controller);
 
+	/**
+	 * place the bikes on the panel
+	 */
 	void position();
 	
+	/**
+	 * close grame, frame, panel
+	 */
 	void closeGame();
 	
+	/**
+	 * sends the temp in the Time panel
+	 */
 	public void time_vus();
 }

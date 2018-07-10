@@ -1,6 +1,10 @@
 package controller;
 
-
+/**
+ * 
+ * @author soria
+ *
+ */
 
 
 public class Clock extends Thread {

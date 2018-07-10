@@ -4,7 +4,11 @@ import java.sql.SQLException;
 import model.IModel;
 import view.IView;
 import view.Order;
-
+/**
+ * 
+ * @author soria
+ *
+ */
 
 public class ControllerFacade implements IController {
 
@@ -17,7 +21,10 @@ public class ControllerFacade implements IController {
 	/** The clock of the game */
 	private Clock clock;
 	
-	private Order lastOrder2 = Order.LEFT;;
+	/** The last other in player 2*/
+	private Order lastOrder2 = Order.LEFT;
+	
+	/** The last other in player 1*/
 	private Order lastOrder1 = Order.RIGHT;
 	
 
@@ -27,10 +34,8 @@ public class ControllerFacade implements IController {
     }
 
     /**
-     * Start.
+     * Start the clock and the game 
      *
-     * @throws SQLException
-     *             the SQL exception
      */
     public void start() {
 		this.clock = new Clock(this);
@@ -45,21 +50,51 @@ public class ControllerFacade implements IController {
 
     
     // je fait sa car impossible de comuniquer model vus directement
+   
+		/**
+		 * 
+		 * @return
+		 * return position x joueur 1
+		 */
 		public int TransMoto1x() {
 			return this.model.getMoto1x(); 
 		}
+		
+		/**
+		 * 
+		 * @return
+		 * return position y joueur 1
+		 */
 		public int TransMoto1y() {
 			return this.model.getMoto1y(); 
 		}
+		
+		/**
+		 * 
+		 * @return
+		 * return position x joueur 2
+		 */
 		public int TransMoto2x() {
 			return this.model.getMoto2x(); 
 		}
+		
+		/**
+		 * 
+		 * @return
+		 * return position y joueur 2
+		 */
 		public int TransMoto2y() {
 			return this.model.getMoto2y(); 
 		}
 
 
-
+		/**
+		 * 
+		 * @param order
+		 * @param i
+		 * 
+		 * take the keys of the keyboard and the stock
+		 */
 	@Override
 	public void orderPerform(Order order, int i) {
 		if (i == 1)
@@ -73,15 +108,19 @@ public class ControllerFacade implements IController {
 		
 	}
 	
+		/**
+		 * 
+		 * @param order
+		 * @param i
+		 * 
+		 * take the touch of the keyboard stock and move the motorcycles
+		 */
 	public void ActionorderPerform(Order order, int i) {
 		if (i == 1)
 		{
-			this.lastOrder1 = order;
 			switch (order){
 			case DOWN:
-				//System.out.println(this.getModel().position_joueur1y());
 				this.getModel().setMoto1y(this.getModel().position_joueur1y()+1);
-				//System.out.println(this.getModel().position_joueur1y());
 				break;
 			case UP:
 				this.getModel().setMoto1y(this.getModel().position_joueur1y()-1);
@@ -101,7 +140,6 @@ public class ControllerFacade implements IController {
 		}
 		else if (i == 2)
 		{
-			this.lastOrder2 = order;
 			switch (order){
 			case DOWN:
 				this.getModel().setMoto2y(this.getModel().position_joueur2y()+1);
@@ -126,6 +164,15 @@ public class ControllerFacade implements IController {
 		
 	}
 	
+	/**
+	 * Collision test
+	 * @param Myx
+	 * @param Myy
+	 * @param Otherx
+	 * @param Othery
+	 * @return
+	 * return if there was a collision, true or false
+	 */
     boolean canMoveOn(int Myx, int Myy, int Otherx, int Othery){
         int ok = 1;
         if(Myx > 562 || Myx < 11)
@@ -159,7 +206,10 @@ public class ControllerFacade implements IController {
         }
     }
 
-	
+	/**
+	 * end-of-game method that sends the winner to the database and closes the game
+	 * @param message
+	 */
 	public void game_over(String message)
 	{
 
@@ -175,34 +225,57 @@ public class ControllerFacade implements IController {
 		System.exit(0);
 	}
 
+	/**
+	 * 
+	 * @return
+	 * return the time in second
+	 */
 	@Override
 	public int time() {
 		return this.clock.getTickNumber();
 	}
 	
-    /**
-     * Gets the model.
-     *
-     * @return the model
-     */
-    public IModel getModel() {
-        return this.model;
-    }
-
-	public IView getView() {
-		return view;
-	}
-
-	public void setView(IView view) {
-		this.view = view;
-	}
-
+	/**
+	 * this is the most important method
+	 * every 1/4 second he moves the motorcycles, sends the time to the view and updates the view
+	 */
 	public void update() {
 		ActionorderPerform(this.lastOrder1, 1);
 		ActionorderPerform(this.lastOrder2, 2);
 		 this.view.time_vus();
 		
 	}
+	
+	// GETTERS & SETTERS //
+
+	/**
+	 * Sets the Model.
+	 * 
+	 * @return
+	 * 			the new model
+	 */
+    public IModel getModel() {
+        return this.model;
+    }
+
+    /**
+     * get the view	
+     * @return
+     */
+	public IView getView() {
+		return view;
+	}
+
+	/**
+	 * Sets the view.
+	 *
+	 * @param view
+	 *          the new view
+	 */
+	public void setView(IView view) {
+		this.view = view;
+	}
+
 
 
 	
