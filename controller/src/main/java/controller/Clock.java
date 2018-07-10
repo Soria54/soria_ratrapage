@@ -28,7 +28,7 @@ public class Clock extends Thread {
 
     /**
      * Instantiates a new Clock.
-     * @param controller
+     * @param controller - controller
      * clock for the controller
      */
     public Clock(ControllerFacade controller) {
@@ -39,7 +39,7 @@ public class Clock extends Thread {
 
     /**
      * Instantiates a new clock with a specified interval.
-     * @param tickInterval
+     * @param tickInterval - tickInterval
      * the interval between two ticks.
      */
     public Clock(int tickInterval) {
@@ -68,8 +68,7 @@ public class Clock extends Thread {
 
     /**
      * Get the number of tick since the beginning.
-     * @return
-     * The number of ticks since the beginning.
+     * @return - The number of ticks since the beginning.
      */
     public int getTickNumber() {
         return tickNumber/4;
@@ -77,8 +76,7 @@ public class Clock extends Thread {
 
     /**
      * Get the interval between two ticks.
-     * @return
-     * The interval in miliseconds.
+     * @return - The interval in miliseconds.
      */
     public long getTickInterval() {
         return tickInterval;
@@ -86,7 +84,7 @@ public class Clock extends Thread {
 
     /**
      * Set the interval between two ticks.
-     * @param tickInterval
+     * @param tickInterval - tickInterval
      * The new interval in milliseconds.
      */
     public synchronized void setTickInterval(long tickInterval) {
@@ -95,8 +93,7 @@ public class Clock extends Thread {
 
     /**
      * Get if the clock is stopped.
-     * @return
-     * True if the clock is stopped.
+     * @return - True if the clock is stopped.
      */
     public boolean isStopped() {
         return stopped;

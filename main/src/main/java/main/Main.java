@@ -12,7 +12,7 @@ import view.ViewFacade;
 		/**
 		 * The main method.
 		 *
-		 * @param args
+		 * @param args - args 
 		 *          the arguments
 		 */
     public static void main(final String[] args) {

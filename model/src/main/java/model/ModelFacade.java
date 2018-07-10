@@ -25,8 +25,7 @@ public final class ModelFacade implements IModel {
     //les joueur 
 	/**
 	 * get Moto 1 x
-	 * @return
-	 * gives the position x player 1 in pixel
+	 * @return - gives the position x player 1 in pixel
 	 */
     public int getMoto1x() 
     {
@@ -35,8 +34,7 @@ public final class ModelFacade implements IModel {
     
     /**
      * get Moto 1 y
-     * @return
-     * gives the position y player 1 in pixel
+     * @return - gives the position y player 1 in pixel
      */
     public int getMoto1y() 
     {
@@ -45,8 +43,7 @@ public final class ModelFacade implements IModel {
     
     /**
      * get Moto 2 x
-     * @return
-     * gives the position x player 2 in pixel
+     * @return - gives the position x player 2 in pixel
      */
     public int getMoto2x() 
     {
@@ -55,8 +52,7 @@ public final class ModelFacade implements IModel {
     
     /**
      * get Moto 2 y
-     * @return
-     * gives the position y player 2 in pixel
+     * @return - gives the position y player 2 in pixel
      */
     public int getMoto2y() 
     {
@@ -66,7 +62,7 @@ public final class ModelFacade implements IModel {
     
     /**
      * receive a position of the box
-     * @param x
+     * @param x - x
      * gives the old position of the bike to make a wall and changes the position x of the motorcycle 1
      */
     public void setMoto1x(int x) 
@@ -79,7 +75,7 @@ public final class ModelFacade implements IModel {
     
     /**
      * receive a position of the box
-     * @param y
+     * @param y - y 
      * gives the old position of the bike to make a wall and changes the position y of the motorcycle 1
      */
     public void setMoto1y(int y) 
@@ -92,7 +88,7 @@ public final class ModelFacade implements IModel {
     
     /**
      * receive a position of the box
-     * @param x
+     * @param x - x 
      * gives the old position of the bike to make a wall and changes the position x of the motorcycle 2
      */
     public void setMoto2x(int x) 
@@ -105,7 +101,7 @@ public final class ModelFacade implements IModel {
     
     /**
      * receive a position of the box
-     * @param y
+     * @param y - y 
      * gives the old position of the bike to make a wall and changes the position y of the motorcycle 2
      */
     public void setMoto2y(int y) 
@@ -118,8 +114,7 @@ public final class ModelFacade implements IModel {
     
     /**
      * 
-     * @return
-     * give the position x player 1
+     * @return - give the position x player 1
      */
     public int position_joueur1x() 
     {
@@ -128,8 +123,7 @@ public final class ModelFacade implements IModel {
     
     /**
      * 
-     * @return
-     * give the position y player 1
+     * @return - give the position y player 1
      */
     public int position_joueur1y() 
     {
@@ -138,8 +132,7 @@ public final class ModelFacade implements IModel {
     
     /**
      * 
-     * @return
-     * give the position x player 2
+     * @return - give the position x player 2
      */
     public int position_joueur2x() 
     {
@@ -148,8 +141,7 @@ public final class ModelFacade implements IModel {
     
     /**
      * 
-     * @return
-     * give the position y player 2
+     * @return - give the position y player 2
      */
     public int position_joueur2y() 
     {
@@ -159,8 +151,7 @@ public final class ModelFacade implements IModel {
     
     /**
      * 
-     * @return
-     * gives the wall number in the part
+     * @return - gives the wall number in the part
      */
 	public int getNbwall() {
 		return NbWall;
@@ -168,9 +159,8 @@ public final class ModelFacade implements IModel {
 
     /**
      * 
-     * @param nb
-     * @return
-     * gives the position x of the wall nb
+     * @param nb - nb
+     * @return - gives the position x of the wall nb
      */
 	public int getWallx(int nb) {
 		return wall[nb][0];
@@ -178,9 +168,8 @@ public final class ModelFacade implements IModel {
 	
 	/**
 	 * 
-	 * @param nb
-	 * @return
-	 * gives the position y of the wall nb
+	 * @param nb - nb
+	 * @return - gives the position y of the wall nb
 	 */
 	public int getWally(int nb) {
 		return wall[nb][1];
@@ -188,7 +177,7 @@ public final class ModelFacade implements IModel {
 
 	/**
 	 * 
-	 * @param nbwall
+	 * @param nbwall - nbwall
 	 * new wall
 	 */
 	public void setNbwall(int nbwall) {
@@ -198,8 +187,8 @@ public final class ModelFacade implements IModel {
 
 	/**
 	 * send the winner to the database and the time 
-	 * @param message
-	 * @param time
+	 * @param message - message
+	 * @param time - time 
 	 * @throws SQLException
 	 */
 	public void message(String message, int time) throws SQLException {

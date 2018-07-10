@@ -53,8 +53,7 @@ public class ControllerFacade implements IController {
    
 		/**
 		 * 
-		 * @return
-		 * return position x joueur 1
+		 * @return - return position x joueur 1
 		 */
 		public int TransMoto1x() {
 			return this.model.getMoto1x(); 
@@ -62,8 +61,7 @@ public class ControllerFacade implements IController {
 		
 		/**
 		 * 
-		 * @return
-		 * return position y joueur 1
+		 * @return - return position y joueur 1
 		 */
 		public int TransMoto1y() {
 			return this.model.getMoto1y(); 
@@ -71,8 +69,7 @@ public class ControllerFacade implements IController {
 		
 		/**
 		 * 
-		 * @return
-		 * return position x joueur 2
+		 * @return - return position x joueur 2
 		 */
 		public int TransMoto2x() {
 			return this.model.getMoto2x(); 
@@ -80,8 +77,7 @@ public class ControllerFacade implements IController {
 		
 		/**
 		 * 
-		 * @return
-		 * return position y joueur 2
+		 * @return - return position y joueur 2
 		 */
 		public int TransMoto2y() {
 			return this.model.getMoto2y(); 
@@ -90,8 +86,8 @@ public class ControllerFacade implements IController {
 
 		/**
 		 * 
-		 * @param order
-		 * @param i
+		 * @param order - order
+		 * @param i - i
 		 * 
 		 * take the keys of the keyboard and the stock
 		 */
@@ -110,8 +106,8 @@ public class ControllerFacade implements IController {
 	
 		/**
 		 * 
-		 * @param order
-		 * @param i
+		 * @param order - order
+		 * @param i - i
 		 * 
 		 * take the touch of the keyboard stock and move the motorcycles
 		 */
@@ -166,12 +162,11 @@ public class ControllerFacade implements IController {
 	
 	/**
 	 * Collision test
-	 * @param Myx
-	 * @param Myy
-	 * @param Otherx
-	 * @param Othery
-	 * @return
-	 * return if there was a collision, true or false
+	 * @param Myx - Myx
+	 * @param Myy - Myy
+	 * @param Otherx - Otherx
+	 * @param Otherx - Otherx
+	 * @return - return if there was a collision, true or false
 	 */
     boolean canMoveOn(int Myx, int Myy, int Otherx, int Othery){
         int ok = 1;
@@ -208,7 +203,7 @@ public class ControllerFacade implements IController {
 
 	/**
 	 * end-of-game method that sends the winner to the database and closes the game
-	 * @param message
+	 * @param message - message
 	 */
 	public void game_over(String message)
 	{
@@ -227,8 +222,7 @@ public class ControllerFacade implements IController {
 
 	/**
 	 * 
-	 * @return
-	 * return the time in second
+	 * @return - return the time in second
 	 */
 	@Override
 	public int time() {
@@ -249,10 +243,9 @@ public class ControllerFacade implements IController {
 	// GETTERS & SETTERS //
 
 	/**
-	 * Sets the Model.
+	 * Gets the Model.
 	 * 
-	 * @return
-	 * 			the new model
+	 * @return - model
 	 */
     public IModel getModel() {
         return this.model;
@@ -260,7 +253,7 @@ public class ControllerFacade implements IController {
 
     /**
      * get the view	
-     * @return
+     * @return - view
      */
 	public IView getView() {
 		return view;
@@ -269,8 +262,8 @@ public class ControllerFacade implements IController {
 	/**
 	 * Sets the view.
 	 *
-	 * @param view
-	 *          the new view
+	 * @param - the new view
+	 *          
 	 */
 	public void setView(IView view) {
 		this.view = view;

@@ -26,7 +26,7 @@ public final class DBConnection {
 
 	public void message(String message, int time) throws SQLException {
 		System.out.println("envoie" + message +"test");
-		final String sql = "INSERT INTO example (name, time) VALUES (?, ?)";
+		final String sql = "{CALL Message(?, ?)}";
 		System.out.println("test1");
 		final CallableStatement INSERT = this.getConnection().prepareCall(sql);
 		INSERT.setString(1, message);

@@ -18,8 +18,8 @@ public interface IController {
 	
 	/**
 	 * 
-	 * @param order
-	 * @param i
+	 * @param order - oder
+	 * @param i - i
 	 * 
 	 * take the keys of the keyboard and the stock
 	 */
@@ -36,32 +36,28 @@ public interface IController {
 	
 	/**
 	 * 
-	 * @return
-	 * return position x joueur 1
+	 * @return - return position x joueur 1
 	 */
 	public int TransMoto1x();
 
 	
 	/**
 	 * 
-	 * @return
-	 * return position y joueur 1
+	 * @return - return position y joueur 1
 	 */
 	public int TransMoto1y();
 
 	
 	/**
 	 * 
-	 * @return
-	 * return position x joueur 2
+	 * @return - return position x joueur 2
 	 */
 	public int TransMoto2x();
 
 	
 	/**
 	 * 
-	 * @return
-	 * return position y joueur 2
+	 * @return - return position y joueur 2
 	 */
 	public int TransMoto2y();
 

@@ -18,8 +18,8 @@ public class Moto {
 
 	/**
 	 * localisation motorbike
-	 * @param x
-	 * @param y
+	 * @param x - x
+	 * @param y - y
 	 */
 	public Moto(int x, int y) {
 		
@@ -32,8 +32,7 @@ public class Moto {
     // get and set 
     /**
      * get Moto x
-     * @return
-     * gives the position x in pixel
+     * @return - gives the position x in pixel
      */
 	public int getX() {
 		return x;
@@ -41,8 +40,7 @@ public class Moto {
 
     /**
      * receive a position of the box
-     * @param x
-     * gives the old position of the bike to make a wall and changes the position x of the motorcycle 
+     * @param x - gives the old position of the bike to make a wall and changes the position x of the motorcycle 
      */
 	public void setX(int x) {
 		this.x = 11+(19*x);
@@ -50,8 +48,7 @@ public class Moto {
 
     /**
      * get Moto y
-     * @return
-     * gives the position y in pixel
+     * @return - gives the position y in pixel
      */
 	public int getY() {
 		return y;
@@ -59,8 +56,7 @@ public class Moto {
 
     /**
      * receive a position of the box
-     * @param y
-     * gives the old position of the bike to make a wall and changes the position y of the motorcycle 
+     * @param y - gives the old position of the bike to make a wall and changes the position y of the motorcycle 
      */
 	public void setY(int y) {
 		this.y = 2 + (18*y);
@@ -68,8 +64,7 @@ public class Moto {
 	
     /**
      * get Moto x
-     * @return
-     * gives the position
+     * @return - gives the position
      */
 	public int positionX() {
 		return (x-11)/19;
@@ -77,8 +72,7 @@ public class Moto {
 	
     /**
      * get Moto y
-     * @return
-     * gives the position 
+     * @return - gives the position 
      */
 	public int positionY() {
 		return (y-2)/18;

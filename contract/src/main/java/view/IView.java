@@ -16,14 +16,14 @@ public interface IView {
 	
 	/**
 	 * 
-	 * @param message
+	 * @param message - message
 	 * shows a new frame with a message
 	 */
     void displayMessage(String message);
 	
     /**
      * 
-     * @param controller
+     * @param controller - controller
      * send the controller
      */
 	public void setController(IController controller);
