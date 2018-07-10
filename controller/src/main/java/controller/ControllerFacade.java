@@ -142,13 +142,7 @@ public class ControllerFacade implements IController {
         }
 	    for (int count = 0; count < this.getModel().getNbwall(); count++) 
 	    {
-	    	/*
-	    	System.out.println("test colision mur");
-	    	System.out.println("postion mur x " + this.getModel().getWallx(count));
-	    	System.out.println("postion mur y " + this.getModel().getWally(count));
-	    	System.out.println("postion x " + x);
-	    	System.out.println("postion y " + y);
-	    	*/
+
 	        if(this.getModel().getWallx(count) == Myx && this.getModel().getWally(count) == Myy)
 	        {
 	        	ok = 0;
