@@ -1,10 +1,8 @@
 package model;
 
 import java.sql.SQLException;
-import java.util.List;
+import model.dao.DBConnection;
 
-
-import model.dao.ExampleDAO;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -12,7 +10,7 @@ import model.dao.ExampleDAO;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public final class ModelFacade implements IModel, Imodel_view {
+public final class ModelFacade implements IModel {
 	private int NbWall = 0;
 	private Moto Moto1;
 	private Moto Moto2;
@@ -117,38 +115,15 @@ public final class ModelFacade implements IModel, Imodel_view {
 		NbWall = nbwall;
 	}
 
+
+
+	public void message(String message, int time) throws SQLException {
+	    DBConnection dbConnection = DBConnection.getInstance();
+	    dbConnection.message(message, time);
+		
+	}
+
 	
-
-    @Override
-    public Example getExampleById(final int id) throws SQLException {
-        return ExampleDAO.getExampleById(id);
-    }
-
-
-    @Override
-    public Example getExampleByName(final String name) throws SQLException {
-        return ExampleDAO.getExampleByName(name);
-    }
-
-
-    @Override
-    public List<Example> getAllExamples() throws SQLException {
-        return ExampleDAO.getAllExamples();
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
 
 }

@@ -166,10 +166,17 @@ public class ControllerFacade implements IController {
     }
 
 	
-	public void game_over(String String)
+	public void game_over(String message)
 	{
+
+		try {
+			this.model.message(message, this.clock.getTickNumber());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 		this.getView().closeGame();
-		this.getView().displayMessage(String);
+		this.getView().displayMessage(message);
 		this.clock.stop();
 		System.exit(0);
 	}
